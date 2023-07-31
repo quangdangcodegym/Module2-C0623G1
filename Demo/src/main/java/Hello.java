@@ -14,16 +14,16 @@ public class Hello {
          System.out.println("Hello Quang Dang");
          System.out.println("HEllo Dat");     //souf + f (format)
          System.out.printf("Ho: %s Tên: %s", "Quang", "Dang");
-        int a = 5;      // so nguyen: int - 4byte
-        long a1  = 5;   // so nguyen: long - 8byte
-        byte a2 = 5;    // so nguyen: byte - 1byte
+        int a = 5;      // so nguyen: int - 4byte  0
+        long a1  = 5;   // so nguyen: long - 8byte 0L
+        byte a2 = 5;    // so nguyen: byte - 1byte 0
 
-        float f1 = 1.0f; // so thuc: 4byte
+        float f1 = 1.0f; // so thuc: 4byte 0f
         double f2 = 1.0d; // so thuc: 8byte
 
-        String s = "Hello, world!";
+        String s = "Hello, world!"; // null
 
-        boolean b1 = true;
+        boolean b1 = true;      // false
 
 
          //        byte a2 = 129;    // kich thuoc luu tru: 1byte
