@@ -34,13 +34,37 @@ public class ArrayEx {
 
         printArray(arr);
         System.out.println("Total: " + total);
+
+         int [] arr = {2,3,6,8,9,4};
+         System.out.println("ARRAY: " + toString(arr));
+         System.out.println(getTotalPerfectSquare1(arr));
+
+         int a = 2;
+         int b = 5;
+         swap(a, b);
+
+         System.out.println("Giá trị a: " + a);
+         System.out.println("Giá trị b: " + b);
+
+
+         int [] arr = {2,5};
+         swapArray(arr);
+
          **/
 
-        int [] arr = {2,3,6,8,9,4};
-        System.out.println("ARRAY: " + toString(arr));
-        System.out.println(getTotalPerfectSquare1(arr));
 
 
+
+    }
+    public static void swapArray(int [] arr){
+        int temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
+    }
+    public static void swap(int a, int b) {
+        int temp = a;
+        a = b;
+        b = temp;
     }
 
 
