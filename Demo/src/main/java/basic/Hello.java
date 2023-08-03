@@ -1,3 +1,5 @@
+package basic;
+
 import java.util.Scanner;
 
 public class Hello {
@@ -10,8 +12,8 @@ public class Hello {
 //        let/var/const a = "5";
 
         /**
-         System.out.println("Hello C06");    //sout + ln (line)
-         System.out.println("Hello Quang Dang");
+         System.out.println("basic.Hello C06");    //sout + ln (line)
+         System.out.println("basic.Hello Quang Dang");
          System.out.println("HEllo Dat");     //souf + f (format)
          System.out.printf("Ho: %s Tên: %s", "Quang", "Dang");
         int a = 5;      // so nguyen: int - 4byte  0
@@ -21,7 +23,7 @@ public class Hello {
         float f1 = 1.0f; // so thuc: 4byte 0f
         double f2 = 1.0d; // so thuc: 8byte
 
-        String s = "Hello, world!"; // null
+        String s = "basic.Hello, world!"; // null
 
         boolean b1 = true;      // false
 
