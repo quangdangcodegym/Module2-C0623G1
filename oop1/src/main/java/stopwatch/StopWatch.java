@@ -22,7 +22,9 @@ public class StopWatch {
 
     public static void main(String[] args) {
         StopWatch sw = new StopWatch();
-        ArrayUtils arrayUtils = new ArrayUtils();
+//        ArrayUtils arrayUtils = new ArrayUtils();
+        StopWatch.ArrayUtils arrayUtils = sw.new ArrayUtils();
+
         sw.start();
 
         int [] arr = arrayUtils.createArray(1000000, 1000000, 10);
@@ -33,9 +35,13 @@ public class StopWatch {
     }
 
 
-    public static class ArrayUtils {
+    // Nested class: non static innner class
+    public class ArrayUtils {
+
+
 
         public  int [] createArray(int size, int MAX, int MIN){
+
             int[] arr = new int[size];
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = (int) Math.floor(Math.random()*(MAX-MIN + 1) + MIN);

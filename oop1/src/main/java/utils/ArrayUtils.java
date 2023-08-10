@@ -1,5 +1,5 @@
-package utils;
-
+//package utils;
+//
 //public class ArrayUtils {
 //
 //    public  int [] createArray(int size, int MAX, int MIN){
@@ -39,7 +39,6 @@ package utils;
 //        for (int j = low; j < high; j++) {
 //            if (arr[j] < pivot) {
 //                i++;
-//
 //                int temp = arr[i];
 //                arr[i] = arr[j];
 //                arr[j] = temp;

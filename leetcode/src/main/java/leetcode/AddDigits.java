@@ -1,3 +1,5 @@
+package leetcode;
+
 public class AddDigits {
     public static int addDigits(int num) {
         while (num >= 10) {

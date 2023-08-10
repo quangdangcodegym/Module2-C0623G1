@@ -1,7 +1,8 @@
 package stopwatch;
 
 public class Student {
-    public static String college;          // thuộc tính của lớp
+    int a1;         // theo giá trị mặc định, biến instance, biến của đối tượng
+    public static String college;          // thuộc tính của lớp, biến static, biến của lop
     private int id;                         // thuộc tính của đối tượng
     private String name;
 
@@ -19,14 +20,13 @@ public class Student {
         System.out.println(Student.college);
         Student.college = college;
 
-
     }
 
     public void setCollege222(String college) {
-
+        int a;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] xxx) {
 
         Student s1 = new Student(1, "Quang");
         Student s2 = new Student(2, "Quang1");
@@ -38,5 +38,17 @@ public class Student {
 
         System.out.println(Student.college);
         System.out.println(s1.college);
+
+
+        int b;
+
+        System.out.println(s1.a1);
+
+        /**
+        javac Hello.java => Hello.class
+
+         java Hello "A" "B"                     --> JVM -> class loader -> static main
+                                                --> JVM -> new Student : s-> s.main
+         **/
     }
 }

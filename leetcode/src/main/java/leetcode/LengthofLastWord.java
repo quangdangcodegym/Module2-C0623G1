@@ -1,3 +1,5 @@
+package leetcode;
+
 public class LengthofLastWord {
     public int lengthOfLastWord1(String s) {
         s = s.trim(); // Remove leading and trailing spaces
