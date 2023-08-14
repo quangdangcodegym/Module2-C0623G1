@@ -1,6 +1,5 @@
 package list_arraylist;
 
-import comparator.ComparatorByArea;
 import sun.text.normalizer.UBiDiProps;
 
 import java.util.*;
@@ -43,6 +42,9 @@ public class ListMain {
 
         Comparator comparator = new ComparatorByArea();
         list.sort(comparator);
+
+
+        list.sort(new ComparatorByArea());
 
         /**
         list.sort(new Comparator<Shape>() {
