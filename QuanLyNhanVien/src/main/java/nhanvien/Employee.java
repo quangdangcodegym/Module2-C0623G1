@@ -1,3 +1,5 @@
+package nhanvien;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -83,13 +85,13 @@ public class Employee {
         String strType = "";
         switch (employeeType) {
             case 0:
-                strType = "Experience";
+                strType = "nhanvien.Experience";
                 break;
             case 1:
-                strType = "Fresher";
+                strType = "nhanvien.Fresher";
                 break;
             case 2:
-                strType = "Intern";
+                strType = "nhanvien.Intern";
                 break;
         }
         return strType;

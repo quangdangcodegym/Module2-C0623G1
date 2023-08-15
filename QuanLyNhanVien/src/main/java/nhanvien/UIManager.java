@@ -1,10 +1,11 @@
+package nhanvien;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
-import java.util.function.Predicate;
 
 public class UIManager {
 
@@ -25,7 +26,7 @@ public class UIManager {
 
 
 //        (long id, String fullName, LocalDate birthDay, String phone, String email,
-//        int employeeType, List<Certificate> certificates,
+//        int employeeType, List<nhanvien.Certificate> certificates,
 //                LocalDate graduationDate, String graduationRank, String education)
 
 
@@ -94,9 +95,9 @@ public class UIManager {
 
 
 
-        eplEdit = employees.stream().filter(new Predicate<Employee>() {
+        eplEdit = employees.stream().filter(new Predicate<nhanvien.Employee>() {
             @Override
-            public boolean test(Employee employee) {
+            public boolean test(nhanvien.Employee employee) {
                 if (employee.getId() == idEmployee) {
                     return true;
                 }
@@ -124,14 +125,14 @@ public class UIManager {
     }
 
     public void showListEmployeesView(){
-        System.out.printf("%10s | %20s | %20s | %10s | %30s | %10s \n", "ID", "Fullname", "Birthday", "Phone", "Email", "Employee type");
+        System.out.printf("%10s | %20s | %20s | %10s | %30s | %10s \n", "ID", "Fullname", "Birthday", "Phone", "Email", "nhanvien.Employee type");
         /**
         for (int i = 0; i < employees.size(); i++) {
-            Employee eplItem = employees.get(i);
+            nhanvien.Employee eplItem = employees.get(i);
             System.out.printf("%10s | %20s | %20s | %10s | %30s | %10s \n", eplItem.getId(), eplItem.getFullName(),
                     eplItem.getBirthDay(), eplItem.getPhone(), eplItem.getEmail(), eplItem.getNameEmployeeType());
         }
-//        Consumer c;
+        Consumer c;
 
 
          employees.stream().forEach(eplItem -> {
@@ -139,22 +140,44 @@ public class UIManager {
              eplItem.getBirthDay(), eplItem.getPhone(), eplItem.getEmail(), eplItem.getNameEmployeeType());
          });
          **/
+        Consumer c;
+        employees.stream().forEach(new Consumer<Employee>() {
+            @Override
+            public void accept(Employee eplItem) {
+                System.out.printf("%10s | %20s | %20s | %10s | %30s | %10s \n", eplItem.getId(), eplItem.getFullName(),
+                        eplItem.getBirthDay(), eplItem.getPhone(), eplItem.getEmail(), eplItem.getNameEmployeeType());
+            }
+        });
 
+        /**
+         Instance method reference: (obj[EType], args) -> obj.instanceMethod(args)
+                                    Ngắn gọn: EType::instanceMethod
+         */
 
-//        employees.stream().forEach(PrintUtils::toStringEmployee);     // Nếu phương thức bên trong là static
+        employees.stream().forEach(eplItem -> {
+            System.out.printf("%10s | %20s | %20s | %10s | %30s | %10s \n", eplItem.getId(), eplItem.getFullName(),
+                    eplItem.getBirthDay(), eplItem.getPhone(), eplItem.getEmail(), eplItem.getNameEmployeeType());
+        });
 
-        PrintUtils printUtils = new PrintUtils();
-        employees.stream().forEach(printUtils::toStringEmployee);
+//        employees.stream().forEach(nhanvien.PrintUtils::toStringEmployee);     // Nếu phương thức bên trong là static
+
+//        nhanvien.PrintUtils printUtils = new nhanvien.PrintUtils();
+//        employees.stream().forEach(printUtils::toStringEmployee);
 
         employees.stream().forEach(Employee::showInfo);
+
+
+
+
+
 
     }
 
     public void addEmployeeView(){
         System.out.println("Chọn loại nhân viên muốn thêm: ");
-        System.out.println("Nhập 1. Thêm Experience");
-        System.out.println("Nhập 2. Thêm Fresher");
-        System.out.println("Nhập 3. Thêm Intern");
+        System.out.println("Nhập 1. Thêm nhanvien.Experience");
+        System.out.println("Nhập 2. Thêm nhanvien.Fresher");
+        System.out.println("Nhập 3. Thêm nhanvien.Intern");
 
         Employee epl;
         int action = Integer.parseInt(scanner.nextLine());
