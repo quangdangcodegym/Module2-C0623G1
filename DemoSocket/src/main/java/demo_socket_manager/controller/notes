@@ -1,0 +1,2 @@
+- trình bày về vấn đề vì sao controller là singleton va service là singleton
+- Trình bày vì sao phải dùng List<Product> temps = List.copyOf(productService.getProducts()); ở trong controller

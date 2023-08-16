@@ -1,4 +1,4 @@
-package demo_socket;
+package demo_socket_manager.controller;
 
 
 import java.io.IOException;

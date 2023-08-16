@@ -1,4 +1,6 @@
-package demo_socket;
+package demo_socket_manager.service;
+
+import demo_socket_manager.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;

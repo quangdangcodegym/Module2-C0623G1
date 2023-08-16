@@ -1,7 +1,9 @@
-package demo_socket;
+package demo_socket_manager;
 
 
 
+
+import demo_socket_manager.controller.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -69,8 +71,8 @@ public class Server {
                         if (request.getController().contains("/product")) {
                             controller = ProductController.getInstance();
                         }
-                        if (request.getController().contains("/user")) {
-//                        controller = new UserController(re);
+                        if (request.getController().contains("/student")) {
+                            controller = StudentController.getInstance();
                         }
 
                         controller.init();

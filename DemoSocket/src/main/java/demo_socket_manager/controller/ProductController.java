@@ -1,12 +1,13 @@
-package demo_socket;
+package demo_socket_manager.controller;
+
+import demo_socket_manager.service.ProductService;
+import demo_socket_manager.model.Product;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-public class ProductController extends Controller{
+public class ProductController extends Controller {
 
     private ProductService productService;
 

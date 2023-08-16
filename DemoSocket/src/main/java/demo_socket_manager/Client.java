@@ -1,9 +1,15 @@
-package demo_socket;
+package demo_socket_manager;
 
-import java.io.*;
+import demo_socket_manager.controller.Request;
+import demo_socket_manager.controller.Response;
+import demo_socket_manager.model.Product;
+import demo_socket_manager.model.Student;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -47,8 +53,10 @@ public class Client {
         boolean checkAction = false;
         do{
             System.out.println("MENU chương trình");
-            System.out.println("Nhập 1. Xem danh sách");
-            System.out.println("Nhâp 2. Thêm sản phẩm");
+            System.out.println("Nhập 1. Xem danh sách sản phẩm");
+            System.out.println("Nhâp 2. Thêm sản pham");
+            System.out.println("Nhập 3. Xem danh sách học sinh");
+            System.out.println("Nhập 4. Thêm học sinh");
             int action = Integer.parseInt(scanner.nextLine());
             switch (action) {
                 case 1:{
@@ -58,6 +66,9 @@ public class Client {
                 case 2:{
                     addProduct(is, os);
                     break;
+                }
+                case 3:{
+                    showStudents(is, os);
                 }
             }
             System.out.println("Bạn có muốn dừng không Y/N");
@@ -71,6 +82,22 @@ public class Client {
                 }
             }
         }while (checkAction);
+    }
+
+    private void showStudents(ObjectInputStream is, ObjectOutputStream os) throws ClassNotFoundException, UnknownHostException, IOException {
+        request = new Request(null, "GET", "show", "/student", is, null);
+        os.writeObject(request);
+        os.flush();
+
+
+        Object objRes = is.readObject();
+
+        if (objRes != null) {
+            Response resp = (Response) objRes;
+            System.out.println("NHẬN THÔNG TIN TỪ SERVER: " + resp);
+            List<Student> students  = (List<Student>) resp.getData();
+            students.stream().forEach(System.out::println);
+        }
     }
 
     private void addProduct(ObjectInputStream is, ObjectOutputStream os) throws ClassNotFoundException, UnknownHostException, IOException{
