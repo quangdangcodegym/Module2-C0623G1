@@ -4,7 +4,10 @@ import java.io.IOException;
 
 public class ProductController extends Controller{
 
+    private ProductService productService;
+
     public ProductController(Request request, Response response){
+        productService = new ProductService();
         this.request = request;
         this.response =response;
     }
@@ -12,7 +15,7 @@ public class ProductController extends Controller{
     public void doGet(Request request, Response response) throws IOException {
         if(request.getAction().equals("show")){
             response.setStatusCode("OK");
-            response.setData("DANH SÁCH PRODUCTS là....");
+            response.setData(productService.getProducts());
             response.getObjectOutputStream().writeObject(response);
         }
     }
