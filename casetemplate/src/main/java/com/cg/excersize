@@ -1,0 +1,5 @@
++ Làm thêm chức năng cập nhat Status của hóa đơn
++ Refactor hàm sort
++ Tính doanh thu hóa đơn theo tháng/năm
++ Tính doanh thu hóa đơn theo khoảng ngày: ngay1->ngày2
++ Tính doanh thu hóa đơn theo 1 ngày: ngay

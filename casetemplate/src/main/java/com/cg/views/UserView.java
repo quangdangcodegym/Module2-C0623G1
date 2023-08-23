@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -56,11 +57,118 @@ public class UserView {
                 case 4 -> {
                     deleteUser();
                 }
+                case 5 -> {
+                    sortUser();
+                }
             }
         }while (checkAction);
 
 
 
+    }
+
+    private void sortUser() {
+        System.out.println("Chon:");
+        System.out.println("Nhập 1. Tăng dần");
+        System.out.println("Nhập 2. Giảm dân");
+
+        int action = Integer.parseInt(scanner.nextLine());
+
+        List<User> users = iUserService.getAllUsers();
+        Comparator<User> comparator = null;
+        switch (action) {
+            case 1 -> {
+                System.out.println("Bạn muốn sắp xếp theo:");
+                System.out.println("Nhập 1. ID");
+                System.out.println("Nhập 2. Tên");
+                System.out.println("Nhập 3. Tuổi");
+
+                int actionBy = Integer.parseInt(scanner.nextLine());
+                switch (actionBy) {
+                    case 1 -> {
+                       comparator = new Comparator<User>() {
+                           @Override
+                           public int compare(User o1, User o2) {
+                               if (o1.getId() > o2.getId()) {
+                                   return 1;
+                               } else if (o1.getId() < o2.getId()) {
+                                   return -1;
+                               }
+                               return 0;
+                           }
+                       };
+                    }
+                    case 2 -> {
+                        comparator = new Comparator<User>() {
+                            @Override
+                            public int compare(User o1, User o2) {
+                                return (o1.getName().compareTo(o2.getName())) *-1;
+                            }
+                        };
+                    }
+                    case 3 -> {
+                        comparator = new Comparator<User>() {
+                            @Override
+                            public int compare(User o1, User o2) {
+                                if (o1.getAge() > o2.getAge()) {
+                                    return 1;
+                                } else if (o1.getAge() < o2.getAge()) {
+                                    return -1;
+                                }
+                                return 0;
+                            }
+                        };
+                    }
+                }
+            }
+            case 2 -> {
+                System.out.println("Bạn muốn sắp xếp theo:");
+                System.out.println("Nhập 1. ID");
+                System.out.println("Nhập 2. Tên");
+                System.out.println("Nhập 3. Tuổi");
+                int actionBy = Integer.parseInt(scanner.nextLine());
+                switch (actionBy) {
+                    case 1 -> {
+                        comparator = new Comparator<User>() {
+                            @Override
+                            public int compare(User o1, User o2) {
+                                if (o1.getId() < o2.getId()) {
+                                    return 1;
+                                } else if (o1.getId() > o2.getId()) {
+                                    return -1;
+                                }
+                                return 0;
+                            }
+                        };
+                    }
+                    case 2 -> {
+                        comparator = new Comparator<User>() {
+                            @Override
+                            public int compare(User o1, User o2) {
+                                return o1.getName().compareTo(o2.getName());
+                            }
+                        };
+                    }
+                    case 3 -> {
+                        comparator = new Comparator<User>() {
+                            @Override
+                            public int compare(User o1, User o2) {
+                                if (o1.getAge() < o2.getAge()) {
+                                    return 1;
+                                } else if (o1.getAge() > o2.getAge()) {
+                                    return -1;
+                                }
+                                return 0;
+                            }
+                        };
+                    }
+                }
+            }
+        }
+
+
+        users.sort(comparator);
+        showUsers(users);
     }
 
     private void deleteUser() {
@@ -98,6 +206,13 @@ public class UserView {
     private void showUsers() {
         System.out.printf("%10s | %20s | %10s | %20s | %10s \n", "ID", "Name", "DOB", "AGE", "GENDER");
         List<User> users = iUserService.getAllUsers();
+        for (User u : users) {
+            System.out.printf("%10s | %20s | %10s | %20s | %10s \n",
+                    u.getId(), u.getName(), DateUtils.formatDate(u.getDob()), u.getAge(), u.getGender());
+        }
+    }
+    private void showUsers(List<User> users) {
+        System.out.printf("%10s | %20s | %10s | %20s | %10s \n", "ID", "Name", "DOB", "AGE", "GENDER");
         for (User u : users) {
             System.out.printf("%10s | %20s | %10s | %20s | %10s \n",
                     u.getId(), u.getName(), DateUtils.formatDate(u.getDob()), u.getAge(), u.getGender());
