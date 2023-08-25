@@ -4,6 +4,7 @@ import com.cg.model.EGender;
 import com.cg.model.User;
 import com.cg.service.IUserService;
 import com.cg.service.UserService;
+import com.cg.utils.CompareUtils;
 import com.cg.utils.DateUtils;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -86,38 +87,13 @@ public class UserView {
                 int actionBy = Integer.parseInt(scanner.nextLine());
                 switch (actionBy) {
                     case 1 -> {
-                       comparator = new Comparator<User>() {
-                           @Override
-                           public int compare(User o1, User o2) {
-                               if (o1.getId() > o2.getId()) {
-                                   return 1;
-                               } else if (o1.getId() < o2.getId()) {
-                                   return -1;
-                               }
-                               return 0;
-                           }
-                       };
+                        comparator = CompareUtils.comparatorAscById();
                     }
                     case 2 -> {
-                        comparator = new Comparator<User>() {
-                            @Override
-                            public int compare(User o1, User o2) {
-                                return (o1.getName().compareTo(o2.getName())) *-1;
-                            }
-                        };
+                        comparator = CompareUtils.comparatorAscByName();
                     }
                     case 3 -> {
-                        comparator = new Comparator<User>() {
-                            @Override
-                            public int compare(User o1, User o2) {
-                                if (o1.getAge() > o2.getAge()) {
-                                    return 1;
-                                } else if (o1.getAge() < o2.getAge()) {
-                                    return -1;
-                                }
-                                return 0;
-                            }
-                        };
+                        comparator = CompareUtils.comparatorAscByAge();
                     }
                 }
             }
@@ -129,38 +105,13 @@ public class UserView {
                 int actionBy = Integer.parseInt(scanner.nextLine());
                 switch (actionBy) {
                     case 1 -> {
-                        comparator = new Comparator<User>() {
-                            @Override
-                            public int compare(User o1, User o2) {
-                                if (o1.getId() < o2.getId()) {
-                                    return 1;
-                                } else if (o1.getId() > o2.getId()) {
-                                    return -1;
-                                }
-                                return 0;
-                            }
-                        };
+                        comparator = CompareUtils.comparatorDescById();
                     }
                     case 2 -> {
-                        comparator = new Comparator<User>() {
-                            @Override
-                            public int compare(User o1, User o2) {
-                                return o1.getName().compareTo(o2.getName());
-                            }
-                        };
+                        comparator = CompareUtils.comparatorDescByName();
                     }
                     case 3 -> {
-                        comparator = new Comparator<User>() {
-                            @Override
-                            public int compare(User o1, User o2) {
-                                if (o1.getAge() < o2.getAge()) {
-                                    return 1;
-                                } else if (o1.getAge() > o2.getAge()) {
-                                    return -1;
-                                }
-                                return 0;
-                            }
-                        };
+                        comparator = CompareUtils.comparatorDescByAge();
                     }
                 }
             }

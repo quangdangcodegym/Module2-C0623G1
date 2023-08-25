@@ -1,10 +1,12 @@
 package com.cg.views;
 
 
+import com.cg.model.ERole;
 import com.cg.model.Order;
 import com.cg.model.OrderItem;
 import com.cg.model.Product;
 import com.cg.service.*;
+import com.cg.utils.AuthUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,26 +24,41 @@ public class OrderView {
     public void launcher() {
         boolean checkAction = false;
         do {
-            System.out.println("Menu quản lý order: ");
-            System.out.println("Nhập 1. Xem danh sách ");
-            System.out.println("Nhập 2. Thêm order");
-            System.out.println("Nhập 3. Sửa order");
-            System.out.println("Nhập 4. Xóa order theo ID");
-            System.out.println("Nhập 5. Xem order theo ID ");
-            int actionMenu = Integer.parseInt(scanner.nextLine());
-            switch (actionMenu) {
-                case 1: {
-                    showOrders();
-                    break;
+            if(AuthUtils.hasRole(ERole.ADMIN)){
+                System.out.println("Menu quản lý order: ");
+                System.out.println("Nhập 1. Xem danh sách ");
+                System.out.println("Nhập 2. Thêm order");
+                System.out.println("Nhập 3. Sửa order");
+                System.out.println("Nhập 4. Xóa order theo ID");
+                System.out.println("Nhập 5. Xem order theo ID ");
+                int actionMenu = Integer.parseInt(scanner.nextLine());
+                switch (actionMenu) {
+                    case 1: {
+                        showOrders();
+                        break;
+                    }
+                    case 2:
+                    {
+                        createOrder();
+                        break;
+                    }
+                    case 5: {
+                        showOrderById();
+                        break;
+                    }
                 }
-                case 2:
-                {
-                    createOrder();
-                    break;
-                }
-                case 5: {
-                    showOrderById();
-                    break;
+            }else{
+                if (AuthUtils.hasRole(ERole.USER)) {
+                    System.out.println("Menu quản lý order: ");
+                    System.out.println("Nhập 1. Xem danh sách ");
+                    System.out.println("Nhập 2. Xem order theo ID ");
+                    int actionMenu = Integer.parseInt(scanner.nextLine());
+                    switch (actionMenu) {
+                        case 1: {
+                            showOrders();
+                            break;
+                        }
+                    }
                 }
             }
         }while (!checkAction);

@@ -19,8 +19,17 @@ public class User implements IParseModel<User> {
     private int age;
     private LocalDate dob;
     private EGender gender;
+    private ERole role;
 
 
+    public User(long id,String name,String password,int age,LocalDate dob,EGender gender){
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.age = age;
+        this.dob = dob;
+        this.gender = gender;
+    }
     public User(long id, String name, String password) {
         this.id = id;
         this.name = name;
@@ -34,7 +43,7 @@ public class User implements IParseModel<User> {
     public User parse(String line) {
         String[] items = line.split(",");
         User u = new User(Long.parseLong(items[0]), items[1], items[2],Integer.parseInt(items[3]),
-                DateUtils.parseDate(items[4]), EGender.valueOf(items[5]));
+                DateUtils.parseDate(items[4]), EGender.valueOf(items[5]), ERole.valueOf(items[6]));
         return u;
     }
 
@@ -42,6 +51,6 @@ public class User implements IParseModel<User> {
     public String toString() {
         //3,Quang Dang2,123123,18,18-07-1992,MALE
         return String.format("%s,%s,%s,%s,%s,%s", this.id, this.name, this.password, this.age,
-                DateUtils.formatDate(this.dob), this.gender);
+                DateUtils.formatDate(this.dob), this.gender, this.role);
     }
 }

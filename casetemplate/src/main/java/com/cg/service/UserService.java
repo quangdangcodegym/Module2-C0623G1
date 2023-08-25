@@ -4,6 +4,7 @@ import com.cg.model.EGender;
 import com.cg.model.User;
 import com.cg.utils.DateUtils;
 import com.cg.utils.FileUtils;
+import com.cg.utils.PasswordUtils;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -22,6 +23,13 @@ public class UserService implements IUserService {
     public User findUser(long id) {
         List<User> users = getAllUsers();
         User u = users.stream().filter(user -> user.getId() == id).findFirst().orElseThrow();
+        return u;
+    }
+
+    @Override
+    public User findUser(String username) {
+        List<User> users = getAllUsers();
+        User u = users.stream().filter(user -> user.getName().equals(username)).findFirst().orElseThrow();
         return u;
     }
 
@@ -71,8 +79,18 @@ public class UserService implements IUserService {
     @Override
     public void createUser(User user) {
         List<User> users = getAllUsers();
+        user.setPassword(PasswordUtils.generatePassword(user.getPassword()));
         users.add(user);
 
         FileUtils.writeData(fileUser, users);
+    }
+
+    @Override
+    public boolean checkUsernamePassword(String username, String password) {
+        List<User> users = getAllUsers();
+
+        return users
+                .stream()
+                .anyMatch(user -> user.getName().equals(username) && PasswordUtils.isValid(password, user.getPassword()));
     }
 }
