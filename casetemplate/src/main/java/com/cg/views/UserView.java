@@ -6,6 +6,7 @@ import com.cg.service.IUserService;
 import com.cg.service.UserService;
 import com.cg.utils.CompareUtils;
 import com.cg.utils.DateUtils;
+import com.cg.utils.ValidateUtils;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -130,13 +131,81 @@ public class UserView {
         showUsers();
     }
 
+    /**
+
+    private String inputUserName(){
+        String name = null;
+        boolean validateName = false;
+        do {
+            System.out.println("Nhập tên: ");
+            name = scanner.nextLine();
+            if (!ValidateUtils.isUserNameValid(name)) {         // Nếu SAI
+                System.out.println("Tên phải bắt đầu là kí tự, có từ 8-20 kí tự");
+                validateName = true;
+            } else {
+                validateName = false;
+            }
+        } while (validateName);
+        return name;
+    }
+    private String inputPassword(){
+        String password = null;
+        boolean validatePassword = false;
+        do {
+            System.out.println("Nhập password: ");
+            password = scanner.nextLine();
+            if (!ValidateUtils.isPasswordValid(password)) {         // Nếu SAI
+                System.out.println("Tên phải tôí thiểu 8 kí tự và không chứa kí tự đặc biệt");
+                validatePassword = true;
+            } else {
+                validatePassword = false;
+            }
+        } while (validatePassword);
+        return password;
+    }
+    private String inputAge(){
+        String age = null;
+        boolean validateAge = false;
+        do {
+            System.out.println("Nhập tuổi: ");
+            String strAge = scanner.nextLine();
+            if (!ValidateUtils.isAgeValid(strAge)) {         // Nếu SAI
+                System.out.println("Tuổi phải từ 10-99");
+                validateAge = true;
+            } else {
+                validateAge = false;
+            }
+        } while (validateAge);
+        return age;
+    }
+
+     **/
+
+    private String checkInputValid(String fieldName, String fieldMessage, String fieldPattern){
+        String input = null;
+        boolean validateInput = false;
+        do {
+            System.out.printf("Nhập %s: \n", fieldName);
+            input = scanner.nextLine();
+            if (!ValidateUtils.isValid(fieldPattern, input)) {         // Nếu SAI
+                System.out.println(fieldMessage);
+                validateInput = true;
+            } else {
+                validateInput = false;
+            }
+        } while (validateInput);
+        return input;
+    }
+
+
+
     private void addUser() {
-        System.out.println("Nhập tên: ");
-        String name = scanner.nextLine();
-        System.out.println("Nhập password:");
-        String pass = scanner.nextLine();
-        System.out.println("Nhập tuổi: ");
-        int age = Integer.parseInt(scanner.nextLine());
+        String name = checkInputValid(ValidateUtils.FIELD_NAME, ValidateUtils.FIELD_NAME_MESSAGE, ValidateUtils.REGEX_USERNAME );
+        String pass = checkInputValid(ValidateUtils.FIELD_PASSWORD, ValidateUtils.FIELD_PASSWORD_MESSAGE, ValidateUtils.PASSWORD_REGEX );
+        String strAge = checkInputValid(ValidateUtils.FIELD_AGE, ValidateUtils.FIELD_AGE_MESSAGE, ValidateUtils.AGE_REGEX);
+        int age = Integer.parseInt(strAge);
+
+
         System.out.println("Nhập ngày sinh: (dd-MM-yyyy)");
         LocalDate dob = DateUtils.parseDate(scanner.nextLine());
 

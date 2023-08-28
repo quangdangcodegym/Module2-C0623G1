@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="demojar:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="86cd048f-d908-4a61-bf4c-840f6466d1a0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../casetemplate/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cg/shopping/model/ERole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cg/shopping/model/EStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cg/shopping/model/IParseModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cg/shopping/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../casetemplate/src/main/java/com/cg/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cg/shopping/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../casetemplate/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../casetemplate/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/demojar_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/demojar_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/demojar_jar/demojar.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cg/shopping/Cart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cg/shopping/CartDetail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cg/shopping/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cg/shopping/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2UTqkiyFO9VoCjTCVEyDog2qSpr" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/CODEGYM/CAC LOP/Module 2/C0623G1/demojar/out/artifacts/demojar_jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CODEGYM\CAC LOP\Module 2\C0623G1\demojar\out\artifacts\demojar_jar" />
+      <recent name="D:\CODEGYM\CAC LOP\Module 2\C0623G1\demojar" />
+      <recent name="D:\CODEGYM\CAC LOP\Module 2\C0623G1\demojar\src\main\java\com\cg\shopping\model" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cg.shopping.utils" />
+      <recent name="com.cg.shopping.model" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cg.shopping.Main" />
+      <module name="demojar" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cg.shopping.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="86cd048f-d908-4a61-bf4c-840f6466d1a0" name="Changes" comment="" />
+      <created>1692974063459</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1692974063459</updated>
+      <workItem from="1692974064521" duration="543000" />
+      <workItem from="1693125940711" duration="119000" />
+      <workItem from="1693189915755" duration="217000" />
+      <workItem from="1693190145222" duration="919000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

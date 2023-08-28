@@ -1,8 +1,7 @@
-package com.cg.utils;
+package com.cg.shopping.utils;
 
-import com.cg.model.IParseModel;
-import com.cg.model.Product;
-import com.cg.model.User;
+
+import com.cg.shopping.model.IParseModel;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -30,13 +29,13 @@ public class FileUtils {
             String line = null;
             while ((line = bufferedReader.readLine()) != null) {
                 /**
-                 Object obj = null;
-                 if (clazz.getName().equals("User")) {
-                 obj = new User();
-                 }
-                 if (clazz.getName().equals("Product")) {
-                 obj = new Product();
-                 }
+                Object obj = null;
+                if (clazz.getName().equals("User")) {
+                    obj = new User();
+                }
+                if (clazz.getName().equals("Product")) {
+                    obj = new Product();
+                }
                  **/
 
                 Object obj = clazz.newInstance();
@@ -90,39 +89,4 @@ public class FileUtils {
     }
 
 
-    public static void writeXml() throws ParserConfigurationException{
-        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-
-        // root elements
-        Document doc = docBuilder.newDocument();
-        Element rootElement = doc.createElement("company");
-        doc.appendChild(rootElement);
-
-        doc.createElement("staff");
-        rootElement.appendChild(doc.createElement("staff"));
-
-        // write dom document to a file
-        try (FileOutputStream output =
-                     new FileOutputStream("./data/test.xml")) {
-            writeXml(doc, output);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        } catch (TransformerException transformerException) {
-            transformerException.printStackTrace();
-        }
-    }
-    private static void writeXml(Document doc,
-                                 OutputStream output)
-            throws TransformerException {
-
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        Transformer transformer = transformerFactory.newTransformer();
-        DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(output);
-
-        transformer.transform(source, result);
-
-    }
 }
