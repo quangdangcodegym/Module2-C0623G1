@@ -1,0 +1,21 @@
+package gson;
+
+import com.google.gson.Gson;
+
+public class GsonMain {
+    public static void main(String[] args) {
+        Gson gson = new Gson();
+
+        /**
+        Rectangle rectangle = new Rectangle("RED", true, 5, 9);
+
+        String jsonObj = gson.toJson(rectangle);
+
+        System.out.println(jsonObj);
+
+         **/
+        String s = "{\"height\":9.0,\"width\":5.0,\"color\":\"RED\",\"filled\":true}";
+        Rectangle rectangle = gson.fromJson(s, Rectangle.class);
+        System.out.println(rectangle.showHang());
+    }
+}

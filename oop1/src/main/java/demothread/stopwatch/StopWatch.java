@@ -1,4 +1,4 @@
-package stopwatch;
+package demothread.stopwatch;
 
 
 public class StopWatch {
@@ -22,12 +22,13 @@ public class StopWatch {
 
     public static void main(String[] args) {
         StopWatch sw = new StopWatch();
-//        ArrayUtils arrayUtils = new ArrayUtils();
-        StopWatch.ArrayUtils arrayUtils = sw.new ArrayUtils();
+        ArrayUtils arrayUtils = sw.new ArrayUtils();
         sw.start();
 
         int [] arr = arrayUtils.createArray(1000000, 1000000, 10);
-                // 10p
+//        Thread t = new StopWatch.SortThreadStatic(arr, arrayUtils);
+        new SortThreadOuter(arr, arrayUtils).start();
+
 
         System.out.println("Đi massage");
         sw.stop();
@@ -37,10 +38,7 @@ public class StopWatch {
 
 
     // Nested class: non static innner class
-    public class ArrayUtils {
-
-
-
+    public  class ArrayUtils {
         public  int [] createArray(int size, int MAX, int MIN){
 
             int[] arr = new int[size];
@@ -93,6 +91,36 @@ public class StopWatch {
             return i + 1;
         }
     }
+
+    public class SortTheadInner extends Thread{
+        int [] arr ;
+        ArrayUtils arrayUtils;
+        public SortTheadInner(int [] arr, ArrayUtils arrayUtils) {
+            this.arr = arr;
+            this.arrayUtils = arrayUtils;
+        }
+
+        @Override
+        public void run() {
+            arrayUtils.interchangeSort(arr);
+        }
+    }
+
+
+    public static class SortThreadStaticInner extends Thread {
+        int [] arr ;
+        ArrayUtils arrayUtils;
+        public SortThreadStaticInner(int [] arr, ArrayUtils arrayUtils) {
+            this.arr = arr;
+            this.arrayUtils = arrayUtils;
+        }
+
+        @Override
+        public void run() {
+            arrayUtils.interchangeSort(arr);
+        }
+    }
+
 
 
 
