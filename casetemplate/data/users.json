@@ -1,25 +1,7 @@
 [
   {
     "id" : 67536,
-    "fullName" : "quangdang4",
-    "password" : "$2a$12$jgbD8pITeKQEZoQOiiq.D.GpCA.dtCWyPAfT4S2UK0qJCkcCsY8bu",
-    "age": 12,
-    "dob": "12-12-2000",
-    "gender": "MALE",
-    "role" : "USER"
-  },
-  {
-    "id" : 67537,
-    "fullName" : "quangdang5",
-    "password" : "$2a$12$jgbD8pITeKQEZoQOiiq.D.GpCA.dtCWyPAfT4S2UK0qJCkcCsY8bu",
-    "age": 12,
-    "dob": "12-12-2000",
-    "gender": "MALE",
-    "role" : "USER"
-  },
-  {
-    "id" : 67538,
-    "fullName" : "quangdang6",
+    "name" : "quangdang4",
     "password" : "$2a$12$jgbD8pITeKQEZoQOiiq.D.GpCA.dtCWyPAfT4S2UK0qJCkcCsY8bu",
     "age": 12,
     "dob": "12-12-2000",

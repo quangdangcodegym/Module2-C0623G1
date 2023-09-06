@@ -4,6 +4,7 @@ import com.cg.model.EGender;
 import com.cg.model.User;
 import com.cg.utils.DateUtils;
 import com.cg.utils.FileUtils;
+import com.cg.utils.JsonUtils;
 import com.cg.utils.PasswordUtils;
 
 import java.io.*;
@@ -13,10 +14,10 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class UserService implements IUserService {
-    private final String fileUser = "./data/users.txt";
+    private final String fileUser = "./data/users.json";
     @Override
     public List<User> getAllUsers() {
-        return FileUtils.readData(fileUser, User.class);
+        return JsonUtils.readData(fileUser);
     }
 
     @Override
